@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BECapstoneFitFlex", "BECapstoneFitFlex\BECapstoneFitFlex.csproj", "{96C63DD6-5B40-4D85-8166-E33DEC8D6EAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BECapstoneUnitTesting", "BECapstoneUnitTesting\BECapstoneUnitTesting.csproj", "{1919C3F3-04D5-4FB2-95E3-734E92C89C9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96C63DD6-5B40-4D85-8166-E33DEC8D6EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96C63DD6-5B40-4D85-8166-E33DEC8D6EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96C63DD6-5B40-4D85-8166-E33DEC8D6EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96C63DD6-5B40-4D85-8166-E33DEC8D6EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1919C3F3-04D5-4FB2-95E3-734E92C89C9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1919C3F3-04D5-4FB2-95E3-734E92C89C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1919C3F3-04D5-4FB2-95E3-734E92C89C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1919C3F3-04D5-4FB2-95E3-734E92C89C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB99A4BD-18BB-4496-AF0D-289360B9FFB7}
+	EndGlobalSection
+EndGlobal
