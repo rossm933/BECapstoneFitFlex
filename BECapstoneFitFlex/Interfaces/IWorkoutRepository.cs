@@ -5,7 +5,7 @@ namespace BECapstoneFitFlex.Interfaces
 {
     public interface IWorkoutRepository
     {
-        Task<List<Workout>> GetWorkoutsAysnc();
+        Task<List<Workout>> GetWorkoutsByUserAysnc(int userId);
         Task<Workout> GetWorkoutByIdAsync(int id);
         Task<Workout> PostWorkoutAsync(CreateWorkoutDTO workoutDTO);
         Task<Workout> UpdateWorkoutAsync(int id, UpdateWorkoutDTO workoutDTO);

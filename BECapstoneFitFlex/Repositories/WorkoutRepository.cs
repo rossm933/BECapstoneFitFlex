@@ -16,10 +16,11 @@ namespace BECapstoneFitFlex.Repositories
         }
 
 
-        public async Task<List<Workout>> GetWorkoutsAysnc()
+        public async Task<List<Workout>> GetWorkoutsByUserAysnc(int userId)
         {
             return await _context.Workout
                 .Include(w => w.Exercise)
+                .Where(w => w.UserId == userId)
                 .OrderBy(w => w.DateCreated)
                 .ToListAsync();
         }

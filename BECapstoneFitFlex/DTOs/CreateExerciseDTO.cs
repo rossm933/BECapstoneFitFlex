@@ -1,4 +1,6 @@
-﻿namespace BECapstoneFitFlex.DTOs
+﻿using BECapstoneFitFlex.Models;
+
+namespace BECapstoneFitFlex.DTOs
 {
     public class CreateExerciseDTO
     {
@@ -9,7 +11,7 @@
         public int Sets { get; set; }
         public decimal Weight { get; set; }
         public int UserId { get; set; }
-
+        public List<ExerciseTag>? ExerciseTag { get; set; }
         public List<int>? TagIds { get; set; } = new List<int>();
     }
 }
