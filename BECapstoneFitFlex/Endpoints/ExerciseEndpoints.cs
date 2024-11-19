@@ -33,7 +33,7 @@ namespace BECapstoneFitFlex.Endpoints
             })
                 .WithName("PostExercise")
                 .WithOpenApi()
-                .Produces<Exercise>(StatusCodes.Status200OK)
+                .Produces<Exercise>(StatusCodes.Status201Created)
                 .Produces(StatusCodes.Status400BadRequest);
 
             group.MapPut("/{id}", async (IExerciseService exerciseService, int id, UpdateExerciseDTO exerciseDTO) =>
