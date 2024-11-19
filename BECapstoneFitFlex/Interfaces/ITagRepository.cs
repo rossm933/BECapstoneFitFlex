@@ -6,9 +6,8 @@ namespace BECapstoneFitFlex.Interfaces
     public interface ITagRepository
     {
         Task<List<Tag>> GetTagsAsync();
-        Task<Tag> GetTagByIdAsync(int id);
         Task<Tag> PostEventAsync(CreateTagDTO tag);
-        Task<Tag> UpdateEventAsync(int id, UpdateTagDTO newTag);
+        Task<Tag> UpdateEventAsync(int id, UpdateTagDTO tag);
         Task<Tag> DeleteEventAsync(int id);
     }
 }
