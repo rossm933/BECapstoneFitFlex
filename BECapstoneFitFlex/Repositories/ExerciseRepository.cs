@@ -32,7 +32,7 @@ namespace BECapstoneFitFlex.Repositories
                 .FirstOrDefaultAsync(a => a.Id == id);
         }
 
-        public async Task<Exercise> PostEventAsync(CreateExerciseDTO exerciseDTO)
+        public async Task<Exercise> PostExerciseAsync(CreateExerciseDTO exerciseDTO)
         {
             var newExercise = new Exercise
             {
