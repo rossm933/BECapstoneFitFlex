@@ -10,6 +10,8 @@ namespace BECapstoneFitFlex.DTOs
         public string? Password { get; set; }
         public string? ImageUrl { get; set; }
 
+        public string? Uid { get; set; }
+
         public List<Workout>? Workout { get; set; }
     }
 }
