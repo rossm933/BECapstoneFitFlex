@@ -21,7 +21,7 @@ namespace BECapstoneFitFlex.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Tag> PostEventAsync(CreateTagDTO tag)
+        public async Task<Tag> PostTagAsync(CreateTagDTO tag)
         {
             var newTag = new Tag
             {
@@ -35,7 +35,7 @@ namespace BECapstoneFitFlex.Repositories
             
         }
 
-        public async Task<Tag> UpdateEventAsync(int id, UpdateTagDTO tag)
+        public async Task<Tag> UpdateTagAsync(int id, UpdateTagDTO tag)
         {
             var tagToUpdate = await _context.Tag.FirstOrDefaultAsync(t => t.Id == id);
 
@@ -50,7 +50,7 @@ namespace BECapstoneFitFlex.Repositories
             
         }
 
-        public async Task<Tag> DeleteEventAsync(int id)
+        public async Task<Tag> DeleteTagAsync(int id)
         {
             var deleteTag = await _context.Tag.FirstOrDefaultAsync(t => t.Id == id);
 
