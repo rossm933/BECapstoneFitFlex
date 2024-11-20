@@ -3,8 +3,6 @@ using BECapstoneFitFlex.Interfaces;
 using BECapstoneFitFlex.Models;
 using BECapstoneFitFlex.DTOs;
 using BECapstoneFitFlex.Services;
-using Microsoft.Extensions.Logging;
-using BECapstoneFitFlex.Data;
 
 namespace BECapstoneUnitTesting
 {

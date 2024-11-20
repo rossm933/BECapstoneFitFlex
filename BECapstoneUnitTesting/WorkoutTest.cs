@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using BECapstoneFitFlex.Interfaces;
 using BECapstoneFitFlex.Models;
 using BECapstoneFitFlex.DTOs;
 using BECapstoneFitFlex.Services;
-using Microsoft.Extensions.Logging;
-using BECapstoneFitFlex.Data;
+
 namespace BECapstoneUnitTesting
 {
     public class WorkoutTest
