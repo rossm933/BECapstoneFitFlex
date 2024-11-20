@@ -2,6 +2,10 @@
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http.Json;
 using BECapstoneFitFlex.Data;
+using BECapstoneFitFlex.Endpoints;
+using BECapstoneFitFlex.Interfaces;
+using BECapstoneFitFlex.Repositories;
+using BECapstoneFitFlex.Services;
 
 namespace BECapstoneFitFlex
 {
@@ -19,6 +23,15 @@ namespace BECapstoneFitFlex
 
             // Set the JSON serializer options
             builder.Services.Configure<JsonOptions>(options => { options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; });
+
+            builder.Services.AddScoped<IWorkoutService, WorkoutServices>();
+            builder.Services.AddScoped<IWorkoutRepository, WorkoutRepository>();
+            builder.Services.AddScoped<ITagService, TagServices>();
+            builder.Services.AddScoped<ITagRepository, TagRepository>();
+            builder.Services.AddScoped<IUserService, UserServices>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IExerciseService, ExerciseServices>();
+            builder.Services.AddScoped<IExerciseRepository, ExerciseRepository>();
 
             // Add services to the container.
             builder.Services.AddAuthorization();
@@ -47,11 +60,16 @@ namespace BECapstoneFitFlex
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+
 
             app.UseAuthorization();
             app.UseCors();
             app.UseHttpsRedirection();
+
+            app.MapExerciseEndpoints();
+            app.MapTagEndpoints();
+            app.MapUserEndpoints();
+            app.MapWorkoutEndpoints();
 
             app.Run();
         }

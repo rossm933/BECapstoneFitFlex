@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BECapstoneFitFlex.Migrations
 {
     [DbContext(typeof(FitFlexDbContext))]
-    [Migration("20241116182351_InitialCreate")]
+    [Migration("20241120010931_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -268,6 +268,9 @@ namespace BECapstoneFitFlex.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ExerciseId");
@@ -345,6 +348,9 @@ namespace BECapstoneFitFlex.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Password")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Uid")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -460,11 +466,13 @@ namespace BECapstoneFitFlex.Migrations
 
             modelBuilder.Entity("BECapstoneFitFlex.Models.Workout", b =>
                 {
-                    b.HasOne("BECapstoneFitFlex.Models.User", null)
+                    b.HasOne("BECapstoneFitFlex.Models.User", "User")
                         .WithMany("Workout")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BECapstoneFitFlex.Models.Exercise", b =>

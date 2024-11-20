@@ -19,7 +19,8 @@ namespace BECapstoneFitFlex.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     Email = table.Column<string>(type: "text", nullable: true),
                     Password = table.Column<string>(type: "text", nullable: true),
-                    ImageUrl = table.Column<string>(type: "text", nullable: true)
+                    ImageUrl = table.Column<string>(type: "text", nullable: true),
+                    Uid = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -87,6 +88,7 @@ namespace BECapstoneFitFlex.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: true),
+                    UserId = table.Column<int>(type: "integer", nullable: true),
                     ExerciseId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
@@ -127,28 +129,28 @@ namespace BECapstoneFitFlex.Migrations
 
             migrationBuilder.InsertData(
                 table: "Tag",
-                columns: new[] { "Id", "ExerciseId", "Name" },
+                columns: new[] { "Id", "ExerciseId", "Name", "UserId" },
                 values: new object[,]
                 {
-                    { 1, null, "Chest" },
-                    { 2, null, "Triceps" },
-                    { 3, null, "Back" },
-                    { 4, null, "Legs" },
-                    { 5, null, "Shoulders" },
-                    { 6, null, "Core" },
-                    { 7, null, "Biceps" },
-                    { 8, null, "Strength" },
-                    { 9, null, "Flexibility" },
-                    { 10, null, "Endurance" }
+                    { 1, null, "Chest", null },
+                    { 2, null, "Triceps", null },
+                    { 3, null, "Back", null },
+                    { 4, null, "Legs", null },
+                    { 5, null, "Shoulders", null },
+                    { 6, null, "Core", null },
+                    { 7, null, "Biceps", null },
+                    { 8, null, "Strength", null },
+                    { 9, null, "Flexibility", null },
+                    { 10, null, "Endurance", null }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
-                columns: new[] { "Id", "Email", "ImageUrl", "Name", "Password" },
+                columns: new[] { "Id", "Email", "ImageUrl", "Name", "Password", "Uid" },
                 values: new object[,]
                 {
-                    { 100, "ross.morgan933@gmail.com", "https://avatars.githubusercontent.com/u/148557558?v=4", "Ross Morgan", "password123" },
-                    { 101, "janesmith@example.com", "https://example.com/images/jane_smith.jpg", "Jane Smith", "securepass456" }
+                    { 100, "ross.morgan933@gmail.com", "https://avatars.githubusercontent.com/u/148557558?v=4", "Ross Morgan", "password123", null },
+                    { 101, "janesmith@example.com", "https://example.com/images/jane_smith.jpg", "Jane Smith", "securepass456", null }
                 });
 
             migrationBuilder.InsertData(
