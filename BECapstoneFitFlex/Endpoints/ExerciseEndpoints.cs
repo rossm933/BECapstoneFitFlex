@@ -17,7 +17,7 @@ namespace BECapstoneFitFlex.Endpoints
                 .WithOpenApi()
                 .Produces<List<Exercise>>(StatusCodes.Status200OK);
 
-            group.MapGet("/exercise/{id}", async (IExerciseService exerciseService, int id) =>
+            group.MapGet("/{id}", async (IExerciseService exerciseService, int id) =>
             {
                 var exercise = await exerciseService.GetExerciseByIdAsync(id);
                 return Results.Ok(exercise);

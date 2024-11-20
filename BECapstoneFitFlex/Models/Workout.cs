@@ -9,5 +9,7 @@
         public DateTime DateCreated { get; set; }
         public List<Exercise>? Exercise { get; set; }
 
+        public User? User { get; set; }
+
     }
 }

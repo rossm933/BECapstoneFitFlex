@@ -10,7 +10,7 @@ namespace BECapstoneFitFlex.Endpoints
         {
             var group = routes.MapGroup("/workout").WithTags(nameof(Workout));
 
-            group.MapGet("/{userId}", async (IWorkoutService workoutService, int userId) =>
+            group.MapGet("/user/{userId}", async (IWorkoutService workoutService, int userId) =>
             {
                 var workout = await workoutService.GetWorkoutsUserAysnc(userId);
                 return Results.Ok(workout);

@@ -23,6 +23,11 @@ namespace BECapstoneFitFlex.Data
             modelBuilder.Entity<User>().HasData(UserData.User);
             modelBuilder.Entity<ExerciseTag>().HasData(ExerciseTagData.ExerciseTag);
 
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Workout)
+                .WithOne(r => r.User)
+                .HasForeignKey(u => u.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Workout>()
                 .HasMany(w => w.Exercise)
