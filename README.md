@@ -1,4 +1,4 @@
-<h1 align="center" style="font-weight: bold;">26-28sweNameless 💻</h1>
+<h1 align="center" style="font-weight: bold;">FitFlex 💻</h1>
 
 <p align="center">
  <a href="#tech">Technologies</a> • 
@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-    <b>The 26-28sweNamelessBE API provides endpoints for managing events and their venues. This collection allows users to retrieve, create, update, and delete both events and venues. It is designed to facilitate interactions with a collection of events and their respective venues in an organized and user-friendly way. Users are also able to RSVP to events they would like to attend.</b>
+    <b>The FitFlex API provides endpoints for managing workoouts, exercises, and tags for the exercises. This collection allows users to retrieve, create, update, and delete workouts, exercises, tags, and user. It is designed to facilitate creating workouts and adding exercises to the workout. The tags on the exercises allow the user to know where on the body the exercise targets. 
 </p>
 
 <h2 id="technologies">💻 Technologies</h2>
@@ -39,13 +39,13 @@ dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version 6.0
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0
 ```
 7.) ```bash
-dotnet user-secrets set "_26_28sweNamelessBEDbConnectionString"
+dotnet user-secrets set "FitFlexDbConnectionString"
 ```
 8.)```bash
-dotnet user-secrets set "_26_28sweNamelessBEDbConnectionString"
+dotnet user-secrets set "FitFlexDbConnectionString"
 ```
 9.)```bash
-"Host=localhost;Port=5432;Username=postgres;Password="YourPgAdminPassword"!;Database=_26_28sweNamelessBE"
+"Host=localhost;Port=5432;Username=postgres;Password="YourPgAdminPassword"!;Database=FitFlex"
 ```
 10.)```bash
 "dotnet ef database update"
@@ -64,7 +64,7 @@ Here you list all prerequisites necessary for running your project. For example:
 How to clone your project
 
 ```bash
-git clone git@github.com:rossm933/26-28sweNamelessBE.git
+git clone git@github.com:rossm933/BECapstoneFitFlex.git
 ```
 
 <h3>Starting</h3>
@@ -72,7 +72,7 @@ git clone git@github.com:rossm933/26-28sweNamelessBE.git
 How to start your project
 
 ```bash
-cd 26-28sweNamelessBE
+cd BECapstoneFitFlex
 dotnet watch run
 ```
 
@@ -81,21 +81,24 @@ dotnet watch run
 ​
 | route               | description                                          
 |----------------------|-----------------------------------------------------
-| <kbd>GET /events</kbd>     | Retrieves events
-| <kbd>GET /events/{id}</kbd>     | Retrieves individual event by id
-| <kbd>GET /events/users/{uid}</kbd>     | Retrieves events by uid
-| <kbd>POST /events</kbd>     | Creates a new event
-| <kbd>PUT /events/{id}</kbd>     | Update an event
-| <kbd>DELETE /events/{id}</kbd>     | Deletes an event by id
-| <kbd>GET /venues</kbd>     | Retrieves venues
-| <kbd>GET /venues/{id}</kbd>     | Retrieves individual venue by id
-| <kbd>GET /venues/users/{uid}</kbd>     | Retrieves venues by uid
-| <kbd>POST /venues</kbd>     | Creates a new venue
-| <kbd>PUT /venues/{id}</kbd>     | Update a venue
-| <kbd>DELETE /venues/{id}</kbd>     | Deletes a venue by id
-| <kbd>GET /rsvps/users/{uid}</kbd>     | Retrieves RSVPs by uid
-| <kbd>POST /rsvps</kbd>     | Creates a new RSVP
-| <kbd>DELETE /rsvps/{id}</kbd>     | Deletes an rsvp by id
+| <kbd>GET /workout/user/{userId}</kbd>     | Retrieves workouts by UserId
+| <kbd>GET /workout/{id}</kbd>     | Retrieves individual workout by id
+| <kbd>POST /workout</kbd>     | Creates a new workout
+| <kbd>PUT /workout/{id}</kbd>     | Update a workout
+| <kbd>DELETE /workoout/{id}</kbd>     | Deletes a workout by id
+| <kbd>GET /exercise</kbd>     | Retrieves all exercises
+| <kbd>GET /exercise/{id}</kbd>     | Retrieves individual exercise by id
+| <kbd>POST /exercise</kbd>     | Creates a new exercise
+| <kbd>PUT /exercise/{id}</kbd>     | Update a exercise
+| <kbd>DELETE /exercise/{id}</kbd>     | Deletes a exercise by id
+| <kbd>GET /tag</kbd>     | Retrieves all tags
+| <kbd>POST /tag</kbd>     | Creates a new tag
+| <kbd>PUT /tag/{id}</kbd>     | Update a tag
+| <kbd>DELETE /tag/{id}</kbd>     | Deletes a tag by id
+| <kbd>GET /user/{id}</kbd>     | Retrieves individual user by id
+| <kbd>POST /user</kbd>     | Creates a new user
+| <kbd>PUT /user/{id}</kbd>     | Update a user
+| <kbd>DELETE /user/{id}</kbd>     | Deletes a user by id
 
 
 <h2 id="colab">🤝 Collaborators</h2>
@@ -112,14 +115,6 @@ Special thank you for all people that contributed for this project.
         </sub>
       </a>
     </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/104770521?v=4" width="100px;" alt="Haley Smith Profile Picture"/><br>
-        <sub>
-          <b>Haley Smith</b>
-        </sub>
-      </a>
-    </td>
   </tr>
 </table>
 
@@ -127,7 +122,7 @@ Special thank you for all people that contributed for this project.
 
 Here you will explain how other developers can contribute to your project. For example, explaining how can create their branches, which patterns to follow and how to open an pull request
 
-1. `git clone git@github.com:rossm933/26-28sweNamelessBE.git`
+1. `git clone git@github.com:rossm933/BECapstoneFitFlex.git`
 2. `git checkout -b feature/NAME`
 3. Follow commit patterns
 4. Open a Pull Request explaining the problem solved or feature made, if exists, append screenshot of visual modifications and wait for the review!
