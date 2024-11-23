@@ -35,6 +35,7 @@ namespace BECapstoneFitFlex.Data
                 .HasForeignKey(w => w.WorkoutId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+
             modelBuilder.Entity<Exercise>()
                 .HasMany(e => e.ExerciseTag)
                 .WithOne(r => r.Exercise)

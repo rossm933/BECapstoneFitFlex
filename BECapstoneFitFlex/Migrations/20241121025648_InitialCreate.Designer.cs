@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BECapstoneFitFlex.Migrations
 {
     [DbContext(typeof(FitFlexDbContext))]
-    [Migration("20241120010931_InitialCreate")]
+    [Migration("20241121025648_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,7 +53,7 @@ namespace BECapstoneFitFlex.Migrations
                     b.Property<decimal>("Weight")
                         .HasColumnType("numeric");
 
-                    b.Property<int>("WorkoutId")
+                    b.Property<int?>("WorkoutId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -432,8 +432,7 @@ namespace BECapstoneFitFlex.Migrations
                     b.HasOne("BECapstoneFitFlex.Models.Workout", "Workout")
                         .WithMany("Exercise")
                         .HasForeignKey("WorkoutId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Workout");
                 });
