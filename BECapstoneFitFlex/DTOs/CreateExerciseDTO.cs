@@ -11,7 +11,6 @@ namespace BECapstoneFitFlex.DTOs
         public int Sets { get; set; }
         public decimal Weight { get; set; }
         public int UserId { get; set; }
-        public List<ExerciseTag>? ExerciseTag { get; set; }
-        public List<int>? TagIds { get; set; } = new List<int>();
+        public List<int>? TagIds { get; set; }
     }
 }
