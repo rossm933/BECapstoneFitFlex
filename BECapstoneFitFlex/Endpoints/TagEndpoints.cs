@@ -19,6 +19,15 @@ namespace BECapstoneFitFlex.Endpoints
                 .WithOpenApi()
                 .Produces<List<Tag>>(StatusCodes.Status200OK);
 
+            group.MapGet("/{id}", async (ITagService tagService, int id) =>
+            {
+                var tag = await tagService.GetTagByIdAsync(id);
+                return Results.Ok(tag);
+            })
+                .WithName("GetTagById")
+                .WithOpenApi()
+                .Produces<Tag>(StatusCodes.Status200OK);
+
             group.MapPost("/", async (ITagService tagService, CreateTagDTO tag) =>
             {
                 var newTag = await tagService.PostTagAsync(tag);

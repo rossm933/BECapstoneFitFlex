@@ -21,6 +21,12 @@ namespace BECapstoneFitFlex.Repositories
                 .ToListAsync();
         }
 
+        public async Task<Tag> GetTagByIdAsync(int id)
+        {
+            return await _context.Tag
+                .FirstOrDefaultAsync(t => t.Id == id);
+        }
+
         public async Task<Tag> PostTagAsync(CreateTagDTO tag)
         {
             var newTag = new Tag

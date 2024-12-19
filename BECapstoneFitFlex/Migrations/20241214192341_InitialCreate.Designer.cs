@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BECapstoneFitFlex.Migrations
 {
     [DbContext(typeof(FitFlexDbContext))]
-    [Migration("20241121025648_InitialCreate")]
+    [Migration("20241214192341_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -281,17 +281,20 @@ namespace BECapstoneFitFlex.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Chest"
+                            Name = "Chest",
+                            UserId = 100
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Triceps"
+                            Name = "Triceps",
+                            UserId = 100
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Back"
+                            Name = "Back",
+                            UserId = 100
                         },
                         new
                         {
@@ -306,7 +309,8 @@ namespace BECapstoneFitFlex.Migrations
                         new
                         {
                             Id = 6,
-                            Name = "Core"
+                            Name = "Core",
+                            UserId = 100
                         },
                         new
                         {
@@ -316,17 +320,20 @@ namespace BECapstoneFitFlex.Migrations
                         new
                         {
                             Id = 8,
-                            Name = "Strength"
+                            Name = "Strength",
+                            UserId = 100
                         },
                         new
                         {
                             Id = 9,
-                            Name = "Flexibility"
+                            Name = "Flexibility",
+                            UserId = 100
                         },
                         new
                         {
                             Id = 10,
-                            Name = "Endurance"
+                            Name = "Endurance",
+                            UserId = 100
                         });
                 });
 
@@ -364,7 +371,8 @@ namespace BECapstoneFitFlex.Migrations
                             Email = "ross.morgan933@gmail.com",
                             ImageUrl = "https://avatars.githubusercontent.com/u/148557558?v=4",
                             Name = "Ross Morgan",
-                            Password = "password123"
+                            Password = "password123",
+                            Uid = "qvds941JGQYhQ4DvLi0mxSE0juM2"
                         },
                         new
                         {

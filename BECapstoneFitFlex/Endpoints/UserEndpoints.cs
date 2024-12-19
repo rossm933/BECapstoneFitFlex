@@ -2,6 +2,7 @@
 using BECapstoneFitFlex.Models;
 using BECapstoneFitFlex.DTOs;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
 namespace BECapstoneFitFlex.Endpoints
 {
     public static class UserEndpoints
@@ -9,6 +10,24 @@ namespace BECapstoneFitFlex.Endpoints
         public static void MapUserEndpoints(this IEndpointRouteBuilder routes) 
         {
             var group = routes.MapGroup("/user").WithTags(nameof(User));
+
+
+            group.MapGet("/checkUser/{uid}", async (IUserService userService, string uid) =>
+            {
+                var user = await userService.CheckUserAsync(uid);
+
+                if (user == null)
+                {
+                    return Results.NotFound("user not found");
+                }
+                return Results.Ok(user);
+            });
+
+            group.MapPost("/register", async (IUserService userService, User user) =>
+            {
+                var newUser = await userService.RegisterUserAsync(user);
+                return Results.Created($"/users/{newUser.Id}", newUser);
+            });
 
             group.MapGet("/{id}", async (IUserService userService, int id) =>
             {

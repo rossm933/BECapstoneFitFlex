@@ -5,6 +5,7 @@ namespace BECapstoneFitFlex.Interfaces
     public interface ITagService
     {
         Task<List<Tag>> GetTagsAsync();
+        Task<Tag> GetTagByIdAsync(int id);
         Task<Tag> PostTagAsync(CreateTagDTO tag);
         Task<Tag> UpdateTagAsync(int id, UpdateTagDTO tag);
         Task<Tag> DeleteTagAsync(int id);
