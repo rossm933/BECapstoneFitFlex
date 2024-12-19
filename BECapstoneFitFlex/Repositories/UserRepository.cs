@@ -14,7 +14,24 @@ namespace BECapstoneFitFlex.Repositories
         {
             _context = context;
         }
+        public async Task<User?> CheckUserAsync(string uid)
+        {
+            return await _context.User.FirstOrDefaultAsync(u => u.Uid == uid);
+        }
+        public async Task<User> RegisterUserAsync(User newUser)
+        {
+            var registerUser = new User
+            {
+                Name = newUser.Name,
+                Email = newUser.Email,
+                Password = newUser.Password,
+                ImageUrl = newUser.ImageUrl
 
+            };
+            await _context.User.AddAsync(registerUser);
+            await _context.SaveChangesAsync();
+            return registerUser;
+        }
         public async Task<User> GetUserByIdAsync(int id)
         {
             return await _context.User

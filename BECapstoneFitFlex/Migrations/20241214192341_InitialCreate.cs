@@ -132,16 +132,16 @@ namespace BECapstoneFitFlex.Migrations
                 columns: new[] { "Id", "ExerciseId", "Name", "UserId" },
                 values: new object[,]
                 {
-                    { 1, null, "Chest", null },
-                    { 2, null, "Triceps", null },
-                    { 3, null, "Back", null },
+                    { 1, null, "Chest", 100 },
+                    { 2, null, "Triceps", 100 },
+                    { 3, null, "Back", 100 },
                     { 4, null, "Legs", null },
                     { 5, null, "Shoulders", null },
-                    { 6, null, "Core", null },
+                    { 6, null, "Core", 100 },
                     { 7, null, "Biceps", null },
-                    { 8, null, "Strength", null },
-                    { 9, null, "Flexibility", null },
-                    { 10, null, "Endurance", null }
+                    { 8, null, "Strength", 100 },
+                    { 9, null, "Flexibility", 100 },
+                    { 10, null, "Endurance", 100 }
                 });
 
             migrationBuilder.InsertData(
@@ -149,7 +149,7 @@ namespace BECapstoneFitFlex.Migrations
                 columns: new[] { "Id", "Email", "ImageUrl", "Name", "Password", "Uid" },
                 values: new object[,]
                 {
-                    { 100, "ross.morgan933@gmail.com", "https://avatars.githubusercontent.com/u/148557558?v=4", "Ross Morgan", "password123", null },
+                    { 100, "ross.morgan933@gmail.com", "https://avatars.githubusercontent.com/u/148557558?v=4", "Ross Morgan", "password123", "qvds941JGQYhQ4DvLi0mxSE0juM2" },
                     { 101, "janesmith@example.com", "https://example.com/images/jane_smith.jpg", "Jane Smith", "securepass456", null }
                 });
 

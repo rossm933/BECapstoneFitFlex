@@ -1,6 +1,7 @@
 ﻿using BECapstoneFitFlex.Interfaces;
 using BECapstoneFitFlex.Models;
 using BECapstoneFitFlex.DTOs;
+using BECapstoneFitFlex.Repositories;
 
 namespace BECapstoneFitFlex.Services
 {
@@ -16,6 +17,17 @@ namespace BECapstoneFitFlex.Services
         public async Task<User> GetUserByIdAsync(int id)
         {
             return await _userServicesRepo.GetUserByIdAsync(id);
+
+        }
+
+        public async Task<User?> CheckUserAsync(string uid)
+        {
+            return await _userServicesRepo.CheckUserAsync(uid);
+        }
+
+        public async Task<User> RegisterUserAsync(User newUser)
+        {
+            return await _userServicesRepo.RegisterUserAsync(newUser);
         }
 
         public async Task<User> PostUserAsync(CreateUserDTO userDTO)

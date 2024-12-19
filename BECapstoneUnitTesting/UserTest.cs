@@ -30,6 +30,31 @@ namespace BECapstoneUnitTesting
             Assert.NotNull(result);
             Assert.Equal(userId, result.Id);
         }
+        [Fact]
+        public async Task RegisterUserAsync_ShouldReturnNewUserId()
+        {
+            // Arrange
+            var newUser = new User
+            {
+                Id = 2,
+                Uid = "qvds941JGQYhQ4DvLi0mxSE0juM2",
+                Name = "newUser01",
+                Email = "newuser@example.com",
+                ImageUrl = "example.jpg",
+                Password = "password123"
+            };
+
+            //Setup
+            _mockUserRepository
+                .Setup(repo => repo.RegisterUserAsync(newUser))
+                .ReturnsAsync(newUser);
+
+            // Act
+            var actualUser = await _userService.RegisterUserAsync(newUser);
+
+            // Assert
+            Assert.Equal(newUser.Id, actualUser.Id);
+        }
 
         [Fact]
 

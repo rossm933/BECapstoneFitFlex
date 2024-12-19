@@ -18,6 +18,11 @@ namespace BECapstoneFitFlex.Services
             return await _tagServicesRepo.GetTagsAsync();
         }
 
+        public async Task<Tag> GetTagByIdAsync(int id)
+        {
+            return await _tagServicesRepo.GetTagByIdAsync(id);
+        }
+
         public async Task<Tag> PostTagAsync(CreateTagDTO tag)
         {
             return await _tagServicesRepo.PostTagAsync(tag);
