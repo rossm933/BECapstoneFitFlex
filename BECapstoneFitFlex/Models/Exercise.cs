@@ -16,6 +16,8 @@ namespace BECapstoneFitFlex.Models
         public List<Tag>? Tag { get; set; }
         public List<ExerciseTag>? ExerciseTag { get; set; }
 
+        public List<ExerciseWorkout>? ExerciseWorkout { get; set; }
+
         public Workout? Workout { get; set; }
     }
 }

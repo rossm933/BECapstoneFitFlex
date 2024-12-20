@@ -1,12 +1,11 @@
 ﻿namespace BECapstoneFitFlex.Models
 {
-    public class ExerciseTag
+    public class ExerciseWorkout
     {
         public int Id { get; set; }
-        public int TagId { get; set; }
+        public int WorkoutId { get; set; }
         public int ExerciseId { get; set; }
         public Exercise? Exercise { get; set; }
-        public Tag? Tag { get; set; } 
-
+        public Workout? Workout { get; set; }
     }
 }

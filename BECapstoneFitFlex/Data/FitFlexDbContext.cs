@@ -10,6 +10,8 @@ namespace BECapstoneFitFlex.Data
         public DbSet<Tag> Tag { get; set; }    
         public DbSet<User> User { get; set; }
         public DbSet<ExerciseTag> ExerciseTag { get; set; }
+
+        public DbSet<ExerciseWorkout> ExerciseWorkout { get; set; }
         public FitFlexDbContext(DbContextOptions<FitFlexDbContext> context) : base(context)
         {
 
@@ -22,6 +24,7 @@ namespace BECapstoneFitFlex.Data
             modelBuilder.Entity<Tag>().HasData(TagData.Tag);
             modelBuilder.Entity<User>().HasData(UserData.User);
             modelBuilder.Entity<ExerciseTag>().HasData(ExerciseTagData.ExerciseTag);
+            modelBuilder.Entity<ExerciseWorkout>().HasData(ExerciseWorkoutData.ExerciseWorkout);
 
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Workout)
@@ -52,6 +55,18 @@ namespace BECapstoneFitFlex.Data
                 .WithMany(v => v.ExerciseTag)
                 .HasForeignKey(r => r.TagId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ExerciseWorkout>()
+                .HasOne(ew => ew.Exercise)
+                .WithMany(e => e.ExerciseWorkout)
+                .HasForeignKey(ew => ew.ExerciseId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Workout>()
+                .HasMany(w => w.ExerciseWorkout)
+                .WithOne(e => e.Workout)
+                .HasForeignKey(ew => ew.WorkoutId)
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BECapstoneFitFlex.Migrations
 {
     [DbContext(typeof(FitFlexDbContext))]
-    [Migration("20241214192341_InitialCreate")]
+    [Migration("20241219195747_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -254,6 +254,43 @@ namespace BECapstoneFitFlex.Migrations
                         });
                 });
 
+            modelBuilder.Entity("BECapstoneFitFlex.Models.ExerciseWorkout", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ExerciseId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("WorkoutId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExerciseId");
+
+                    b.HasIndex("WorkoutId");
+
+                    b.ToTable("ExerciseWorkout");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ExerciseId = 1,
+                            WorkoutId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ExerciseId = 2,
+                            WorkoutId = 2
+                        });
+                });
+
             modelBuilder.Entity("BECapstoneFitFlex.Models.Tag", b =>
                 {
                     b.Property<int>("Id")
@@ -464,6 +501,25 @@ namespace BECapstoneFitFlex.Migrations
                     b.Navigation("Tag");
                 });
 
+            modelBuilder.Entity("BECapstoneFitFlex.Models.ExerciseWorkout", b =>
+                {
+                    b.HasOne("BECapstoneFitFlex.Models.Exercise", "Exercise")
+                        .WithMany("ExerciseWorkout")
+                        .HasForeignKey("ExerciseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BECapstoneFitFlex.Models.Workout", "Workout")
+                        .WithMany("ExerciseWorkout")
+                        .HasForeignKey("WorkoutId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Exercise");
+
+                    b.Navigation("Workout");
+                });
+
             modelBuilder.Entity("BECapstoneFitFlex.Models.Tag", b =>
                 {
                     b.HasOne("BECapstoneFitFlex.Models.Exercise", null)
@@ -486,6 +542,8 @@ namespace BECapstoneFitFlex.Migrations
                 {
                     b.Navigation("ExerciseTag");
 
+                    b.Navigation("ExerciseWorkout");
+
                     b.Navigation("Tag");
                 });
 
@@ -504,6 +562,8 @@ namespace BECapstoneFitFlex.Migrations
             modelBuilder.Entity("BECapstoneFitFlex.Models.Workout", b =>
                 {
                     b.Navigation("Exercise");
+
+                    b.Navigation("ExerciseWorkout");
                 });
 #pragma warning restore 612, 618
         }
