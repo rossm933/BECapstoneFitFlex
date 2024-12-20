@@ -9,6 +9,8 @@
         public DateTime DateCreated { get; set; }
         public List<Exercise>? Exercise { get; set; }
 
+        public List<ExerciseWorkout>? ExerciseWorkout { get; set; }
+
         public User? User { get; set; }
 
     }

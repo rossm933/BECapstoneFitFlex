@@ -82,6 +82,32 @@ namespace BECapstoneFitFlex.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ExerciseWorkout",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    WorkoutId = table.Column<int>(type: "integer", nullable: false),
+                    ExerciseId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ExerciseWorkout", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ExerciseWorkout_Exercise_ExerciseId",
+                        column: x => x.ExerciseId,
+                        principalTable: "Exercise",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ExerciseWorkout_Workout_WorkoutId",
+                        column: x => x.WorkoutId,
+                        principalTable: "Workout",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Tag",
                 columns: table => new
                 {
@@ -195,6 +221,15 @@ namespace BECapstoneFitFlex.Migrations
                     { 12, 8, 2 }
                 });
 
+            migrationBuilder.InsertData(
+                table: "ExerciseWorkout",
+                columns: new[] { "Id", "ExerciseId", "WorkoutId" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 2 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Exercise_UserId",
                 table: "Exercise",
@@ -216,6 +251,16 @@ namespace BECapstoneFitFlex.Migrations
                 column: "TagId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ExerciseWorkout_ExerciseId",
+                table: "ExerciseWorkout",
+                column: "ExerciseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ExerciseWorkout_WorkoutId",
+                table: "ExerciseWorkout",
+                column: "WorkoutId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Tag_ExerciseId",
                 table: "Tag",
                 column: "ExerciseId");
@@ -230,6 +275,9 @@ namespace BECapstoneFitFlex.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ExerciseTag");
+
+            migrationBuilder.DropTable(
+                name: "ExerciseWorkout");
 
             migrationBuilder.DropTable(
                 name: "Tag");

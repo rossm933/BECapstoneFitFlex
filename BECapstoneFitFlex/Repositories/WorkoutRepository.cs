@@ -19,7 +19,8 @@ namespace BECapstoneFitFlex.Repositories
         public async Task<List<Workout>> GetWorkoutsByUserAysnc(int userId)
         {
             return await _context.Workout
-                .Include(w => w.Exercise)
+                .Include(e => e.ExerciseWorkout)
+                .ThenInclude(s => s.Exercise)
                 .Where(w => w.UserId == userId)
                 .OrderBy(w => w.DateCreated)
                 .ToListAsync();
@@ -27,7 +28,8 @@ namespace BECapstoneFitFlex.Repositories
         public async Task<Workout> GetWorkoutByIdAsync(int id)
         {
             return await _context.Workout
-                .Include(w => w.Exercise)
+                .Include(e => e.ExerciseWorkout)
+                .ThenInclude(s => s.Exercise)
                 .FirstOrDefaultAsync(a => a.Id == id);
         }
 
@@ -41,7 +43,14 @@ namespace BECapstoneFitFlex.Repositories
                 UserId = workoutDTO.UserId,
 
             };
-            
+           
+            if (workoutDTO.ExerciseIds != null && workoutDTO.ExerciseIds.Any())
+            {
+                newWorkout.ExerciseWorkout = workoutDTO.ExerciseIds
+                    .Select(exerciseId => new ExerciseWorkout { ExerciseId = exerciseId })
+                    .ToList();
+            }
+
             _context.Workout.Add(newWorkout);
             await _context.SaveChangesAsync();
             return newWorkout;
@@ -49,18 +58,39 @@ namespace BECapstoneFitFlex.Repositories
 
         public async Task<Workout> UpdateWorkoutAsync(int id, UpdateWorkoutDTO workoutDTO)
         {
-            var workoutToUpdate = await _context.Workout.SingleOrDefaultAsync(w => w.Id == id);
+            // Fetch the workout and include the ExerciseWorkout relationships
+            var workoutToUpdate = await _context.Workout
+                .Include(e => e.ExerciseWorkout)
+                .FirstOrDefaultAsync(e => e.Id == id);
 
             if (workoutToUpdate == null)
             {
                 return null;
             }
 
+            // Update workout details
             workoutToUpdate.WorkoutName = workoutDTO.WorkoutName;
             workoutToUpdate.Description = workoutDTO.Description;
             workoutToUpdate.UserId = workoutDTO.UserId;
 
+            // Update ExerciseWorkout relationships
+            var existingExercises = workoutToUpdate.ExerciseWorkout ?? new List<ExerciseWorkout>();
+
+            // Remove exercises not in the new ExerciseIds list
+            _context.ExerciseWorkout.RemoveRange(
+                existingExercises.Where(et => !workoutDTO.ExerciseIds.Contains(et.ExerciseId))
+            );
+
+            // Add new exercises that don't already exist
+            var newExercises = workoutDTO.ExerciseIds
+                .Where(exerciseId => !existingExercises.Any(et => et.ExerciseId == exerciseId))
+                .Select(exerciseId => new ExerciseWorkout { WorkoutId = id, ExerciseId = exerciseId });
+
+            await _context.ExerciseWorkout.AddRangeAsync(newExercises);
+
+            // Save changes to the database
             await _context.SaveChangesAsync();
+
             return workoutToUpdate;
         }
         public async Task<Workout> DeleteWorkoutAsync(int id)
