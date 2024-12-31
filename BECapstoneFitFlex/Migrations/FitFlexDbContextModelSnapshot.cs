@@ -72,8 +72,7 @@ namespace BECapstoneFitFlex.Migrations
                             Repetitions = 10,
                             Sets = 3,
                             UserId = 100,
-                            Weight = 80.5m,
-                            WorkoutId = 1
+                            Weight = 80.5m
                         },
                         new
                         {
@@ -84,8 +83,7 @@ namespace BECapstoneFitFlex.Migrations
                             Repetitions = 8,
                             Sets = 4,
                             UserId = 100,
-                            Weight = 100m,
-                            WorkoutId = 2
+                            Weight = 100m
                         },
                         new
                         {
@@ -96,8 +94,7 @@ namespace BECapstoneFitFlex.Migrations
                             Repetitions = 12,
                             Sets = 3,
                             UserId = 100,
-                            Weight = 60m,
-                            WorkoutId = 2
+                            Weight = 60m
                         },
                         new
                         {
@@ -108,8 +105,7 @@ namespace BECapstoneFitFlex.Migrations
                             Repetitions = 10,
                             Sets = 3,
                             UserId = 100,
-                            Weight = 0m,
-                            WorkoutId = 2
+                            Weight = 0m
                         },
                         new
                         {
@@ -120,8 +116,7 @@ namespace BECapstoneFitFlex.Migrations
                             Repetitions = 8,
                             Sets = 4,
                             UserId = 100,
-                            Weight = 50m,
-                            WorkoutId = 1
+                            Weight = 50m
                         },
                         new
                         {
@@ -132,8 +127,7 @@ namespace BECapstoneFitFlex.Migrations
                             Repetitions = 1,
                             Sets = 3,
                             UserId = 100,
-                            Weight = 0m,
-                            WorkoutId = 1
+                            Weight = 0m
                         },
                         new
                         {
@@ -144,8 +138,7 @@ namespace BECapstoneFitFlex.Migrations
                             Repetitions = 12,
                             Sets = 3,
                             UserId = 100,
-                            Weight = 15m,
-                            WorkoutId = 1
+                            Weight = 15m
                         },
                         new
                         {
@@ -156,8 +149,7 @@ namespace BECapstoneFitFlex.Migrations
                             Repetitions = 12,
                             Sets = 3,
                             UserId = 100,
-                            Weight = 0m,
-                            WorkoutId = 1
+                            Weight = 0m
                         });
                 });
 
