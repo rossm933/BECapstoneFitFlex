@@ -180,27 +180,27 @@ namespace BECapstoneFitFlex.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Exercise",
+                columns: new[] { "Id", "Description", "ExerciseName", "ImageUrl", "Repetitions", "Sets", "UserId", "Weight", "WorkoutId" },
+                values: new object[,]
+                {
+                    { 1, "Chest and triceps workout with a barbell.", "Bench Press", "https://www.shutterstock.com/image-illustration/closegrip-barbell-bench-press-3d-600nw-430936051.jpg", 10, 3, 100, 80.5m, null },
+                    { 2, "Full-body compound exercise.", "Deadlift", "https://www.evolvefitstudios.com/uploads/1/0/2/9/102951852/deadlifts_orig.jpeg", 8, 4, 100, 100m, null },
+                    { 3, "Lower body strength exercise.", "Squats", "https://static.strengthlevel.com/images/exercises/squat/squat-800.jpg", 12, 3, 100, 60m, null },
+                    { 4, "Upper body workout targeting back and biceps.", "Pull-Ups", "https://anabolicaliens.com/cdn/shop/articles/199990_400x.png?v=1645089103", 10, 3, 100, 0m, null },
+                    { 5, "Shoulder strength exercise with a barbell.", "Shoulder Press", "https://static.strengthlevel.com/images/exercises/shoulder-press/shoulder-press-800.jpg", 8, 4, 100, 50m, null },
+                    { 6, "Core stability exercise.", "Plank", "https://www.inspireusafoundation.org/wp-content/uploads/2023/07/plank-benefits.png", 1, 3, 100, 0m, null },
+                    { 7, "Isolation exercise for the biceps.", "Bicep Curls", "https://cdn.shopify.com/s/files/1/2384/0833/files/inner-bicep-curl-benefits.jpg?v=1689192787", 12, 3, 100, 15m, null },
+                    { 8, "Strengthens triceps and shoulders.", "Tricep Dips", "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-assets/17551101-Weighted-Tricep-Dips_Upper-Arms_small.jpg", 12, 3, 100, 0m, null }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Workout",
                 columns: new[] { "Id", "DateCreated", "Description", "UserId", "WorkoutName" },
                 values: new object[,]
                 {
                     { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(1999), "Focus on building upper body strength with weights.", 100, "Strength Training" },
                     { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(1994), "Focus on lower body strength with weights.", 100, "Leg Day" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Exercise",
-                columns: new[] { "Id", "Description", "ExerciseName", "ImageUrl", "Repetitions", "Sets", "UserId", "Weight", "WorkoutId" },
-                values: new object[,]
-                {
-                    { 1, "Chest and triceps workout with a barbell.", "Bench Press", "https://www.shutterstock.com/image-illustration/closegrip-barbell-bench-press-3d-600nw-430936051.jpg", 10, 3, 100, 80.5m, 1 },
-                    { 2, "Full-body compound exercise.", "Deadlift", "https://www.evolvefitstudios.com/uploads/1/0/2/9/102951852/deadlifts_orig.jpeg", 8, 4, 100, 100m, 2 },
-                    { 3, "Lower body strength exercise.", "Squats", "https://static.strengthlevel.com/images/exercises/squat/squat-800.jpg", 12, 3, 100, 60m, 2 },
-                    { 4, "Upper body workout targeting back and biceps.", "Pull-Ups", "https://anabolicaliens.com/cdn/shop/articles/199990_400x.png?v=1645089103", 10, 3, 100, 0m, 2 },
-                    { 5, "Shoulder strength exercise with a barbell.", "Shoulder Press", "https://static.strengthlevel.com/images/exercises/shoulder-press/shoulder-press-800.jpg", 8, 4, 100, 50m, 1 },
-                    { 6, "Core stability exercise.", "Plank", "https://www.inspireusafoundation.org/wp-content/uploads/2023/07/plank-benefits.png", 1, 3, 100, 0m, 1 },
-                    { 7, "Isolation exercise for the biceps.", "Bicep Curls", "https://cdn.shopify.com/s/files/1/2384/0833/files/inner-bicep-curl-benefits.jpg?v=1689192787", 12, 3, 100, 15m, 1 },
-                    { 8, "Strengthens triceps and shoulders.", "Tricep Dips", "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-assets/17551101-Weighted-Tricep-Dips_Upper-Arms_small.jpg", 12, 3, 100, 0m, 1 }
                 });
 
             migrationBuilder.InsertData(

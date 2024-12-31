@@ -60,13 +60,24 @@ namespace BECapstoneFitFlex.Data
                 .HasOne(ew => ew.Exercise)
                 .WithMany(e => e.ExerciseWorkout)
                 .HasForeignKey(ew => ew.ExerciseId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Cascade); // or DeleteBehavior.Restrict / SetNull based on requirements
 
             modelBuilder.Entity<Workout>()
                 .HasMany(w => w.ExerciseWorkout)
                 .WithOne(e => e.Workout)
                 .HasForeignKey(ew => ew.WorkoutId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Cascade); // or DeleteBehavior.Restrict / SetNull based on requirements
+
+            modelBuilder.Entity<ExerciseWorkout>()
+                .HasKey(ew => ew.Id); // Use a composite key instead if you prefer
+
+            modelBuilder.Entity<ExerciseWorkout>()
+                .Property(ew => ew.WorkoutId)
+                .IsRequired();
+
+            modelBuilder.Entity<ExerciseWorkout>()
+                .Property(ew => ew.ExerciseId)
+                .IsRequired();
 
         }
     }
